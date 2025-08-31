@@ -1,6 +1,6 @@
 package deribit
 
-import "github.com/frankrap/deribit-api/models"
+import "github.com/metarsit/deribit-api/models"
 
 func (c *Client) GetBookSummaryByCurrency(params *models.GetBookSummaryByCurrencyParams) (result []models.BookSummary, err error) {
 	err = c.Call("public/get_book_summary_by_currency", params, &result)
@@ -34,6 +34,11 @@ func (c *Client) GetHistoricalVolatility(params *models.GetHistoricalVolatilityP
 
 func (c *Client) GetIndex(params *models.GetIndexParams) (result models.GetIndexResponse, err error) {
 	err = c.Call("public/get_index", params, &result)
+	return
+}
+
+func (c *Client) GetIndexPrice(params *models.GetIndexPriceParams) (result models.GetIndexPriceResponse, err error) {
+	err = c.Call("public/get_index_price", params, &result)
 	return
 }
 
