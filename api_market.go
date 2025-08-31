@@ -47,6 +47,11 @@ func (c *Client) GetInstruments(params *models.GetInstrumentsParams) (result []m
 	return
 }
 
+func (c *Client) GetDeliveryPrices(params *models.GetDeliveryPricesParams) (result models.GetDeliveryPricesResponse, err error) {
+	err = c.Call("public/get_delivery_prices", params, &result)
+	return
+}
+
 func (c *Client) GetLastSettlementsByCurrency(params *models.GetLastSettlementsByCurrencyParams) (result models.GetLastSettlementsResponse, err error) {
 	err = c.Call("public/get_last_settlements_by_currency", params, &result)
 	return
